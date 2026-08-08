@@ -42,8 +42,14 @@ def run_cargo_scanner():
         print(f"[*] Simulated cargo image created: {image_path}")
 
     cargo_image = Image.open(image_path)
-    freight_method = "Air Freight"
-    user_notes = "Flashing flame symbol symbol observed on the package box."
+
+    # ----------------------------------------------------
+    # ส่วนรับข้อมูลแบบ Dynamic Input จาก User
+    # ----------------------------------------------------
+    print("\n[Input Configuration]")
+    freight_method = input("Enter shipping method (e.g., Air Freight, Sea Freight, Road Freight): ")
+    user_notes = input("Enter operator notes / observations (e.g., Flame symbol, Battery inside): ")
+    print("----------------------------------------------------")
 
     # Prepare inputs for Multimodality
     contents = [
@@ -68,18 +74,18 @@ def run_cargo_scanner():
     )
 
     print("\nProcessing cargo data and checking safety regulations...")
-    print("--- Streaming JSON Response ---")
+    print("--- JSON Response ---")
 
-    # 4. Stream the response chunks to the console
+    # 4. Generate Content with function calling execution
     response = client.models.generate_content(
-        model='gemini-3.6-flash', # <--- เปลี่ยนเป็นตัวหลักตามมาตรฐาน
+        model='gemini-3.6-flash', 
         contents=contents,
         config=config
     )
 
     print(response.text)
 
-    print("\n\n=== Scan Complete. Data saved to inventory dashboard. ===")
+    print("\n=== Scan Complete. Data saved to inventory dashboard. ===")
 
 if __name__ == "__main__":
     run_cargo_scanner()

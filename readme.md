@@ -21,7 +21,7 @@
 ## ตัวอย่าง Input / Output
 ### Input
 - **Image:** ภาพขวดสเปรย์แอลกอฮอล์หรือถังสารเคมี
-- **Text:** "ขนส่งทางอากาศ (Air Freight)"
+- Text Input: รองรับการกรอกข้อมูลสดจากผู้ใช้งานหน้างานผ่านหน้าจอคอนโซล (Dynamic User Input) ทั้งช่องวิธีขนส่ง (Shipping Method) และบันทึกเพิ่มเติมจากเจ้าหน้าที่ (Operator Notes)
 
 ### Output (JSON)
 ```json
