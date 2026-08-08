@@ -72,7 +72,7 @@ def run_cargo_scanner():
 
     # 4. Stream the response chunks to the console
     response_stream = client.models.generate_content_stream(
-        model='gemini-2.5-flash',
+        model='gemini-2.5-flash', # <--- เปลี่ยนเป็นตัวหลักตามมาตรฐาน
         contents=contents,
         config=config
     )
