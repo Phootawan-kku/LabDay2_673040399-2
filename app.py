@@ -65,9 +65,10 @@ def run_cargo_scanner():
             "You are an expert in industrial safety, dangerous goods compliance, and logistics operations. "
             "Your task is to analyze the cargo items. You must call the check_shipping_regulations tool to "
             "verify international transport restrictions based on the item type and freight method. "
-            "You must strictly return the final output in the requested JSON schema format."
+            "You must strictly return the final output in the requested JSON schema format. "
+            "CRITICAL: All text values inside the JSON response (such as item_name, hazard_class, handling_instructions, storage_zone) MUST be strictly in THAI language."
         ),
-        temperature=0.1, # ใช้ค่าต่ำเพื่อให้ได้โครงสร้าง JSON ที่เสถียรและแม่นยำสูง
+        temperature=0.1, 
         tools=[check_shipping_regulations],
         response_mime_type="application/json",
         response_schema=CargoSafetyResponse,
