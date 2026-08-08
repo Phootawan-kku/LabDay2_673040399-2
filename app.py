@@ -71,14 +71,13 @@ def run_cargo_scanner():
     print("--- Streaming JSON Response ---")
 
     # 4. Stream the response chunks to the console
-    response_stream = client.models.generate_content_stream(
+    response = client.models.generate_content(
         model='gemini-3.6-flash', # <--- เปลี่ยนเป็นตัวหลักตามมาตรฐาน
         contents=contents,
         config=config
     )
 
-    for chunk in response_stream:
-        print(chunk.text, end="", flush=True)
+    print(response.text)
 
     print("\n\n=== Scan Complete. Data saved to inventory dashboard. ===")
 
